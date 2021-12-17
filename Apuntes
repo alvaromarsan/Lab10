@@ -55,4 +55,24 @@ Utilizaremos la herramienta SQLMAP para realizar una automatización de inyecci�
 - El comando para obtener las columnas de una tabla concreta: sqlmap --cookie "[cookie]" -u "[url_con param_inyectable]" -D moviescope -T user_login --columns
 - El comando para obtener lo que hay guardado en una tabla: sqlmap --cookie "[cookie]" -u "[url_con param_inyectable]" -D moviescope -T user_login --dump
 
-
+OwnCloud
+--------
+  Configuración
+  -------------
+  - En la máquina de Ubuntu.
+  - Lo primero que hacemos es actualizar los repositorios: apt update
+  - Después, instalaremos docker: apt install docker.io -y
+  - Descargamos la imagen de owncloud: docker pull owncloud
+  - Comprobamos que se ha descargado: docker images
+  - Arrancamos el docker: docker run -d -p 80:80 owncloud
+  - Es posible que haya que detener el servidor Apache: systemctl stop apache2
+  - Accedemos a owncloud desde el navegador con localhost.
+  - Le introducimos el usuario y la contraseña que queramos.
+  
+  Pregunta
+  --------
+  Acceder a ownCloud utilizando unas credenciales que estarán en un ejercicio previo de esteganografía.
+  
+  Esteganografía
+  --------------
+  En este usaremos la herramienta steghide
