@@ -1,0 +1,9 @@
+Laboratorio CEHv10
+------------------
+1. Escanear las máquinas
+------------------------
+- Primero escanearemos la red buscando equipos que pertenecen a ella: nmpa -sn [red] -oN networkMap.txt
+- Después realizaremos un escaneo más exhaustivo de cada una de las máquinas presentes en la red: nmap -Pn -A [IP] -oN [nombre_maquina]
+
+
+
