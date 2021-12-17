@@ -2,8 +2,45 @@ Laboratorio CEHv10
 ------------------
 1. Escanear las máquinas
 ------------------------
-- Primero escanearemos la red buscando equipos que pertenecen a ella: nmpa -sn [red] -oN networkMap.txt
+- Primero escanearemos la red buscando equipos que pertenecen a ella: nmap -sn [red] -oN networkMap.txt
 - Después realizaremos un escaneo más exhaustivo de cada una de las máquinas presentes en la red: nmap -Pn -A [IP] -oN [nombre_maquina]
+- Comprobar si está habilitado el servicio snmp en el controlador de dominio: nmap -sU -p161 [IP_DC}
 
+2. Enumeración SNMP
+-------------------
+- Para enumerar el servicio SNMP utilizamos: snmp-check [IP] > snmp_enum.txt
 
+3. Enumeración LDAP
+-------------------
+- Para la enumeración de LDAP podemos utilizar la herramienta: enum4linux
+- Una enumeración básica se puede realizar de esta manera: enum4linux -n [IP]
+- Si tuvieramos unas credenciales podríamos intentar obtener la lista de usuarios de esta manera: enum4linux -u [user] -p [password] -U [IP]
+
+4. Sniffing
+-----------
+- Realizar un MITM con Kali Linux envenenando la caché ARP de os equipos W10 y WS16:
+- Primero abrimos la interfaz gráfica de ettercap: ettercap -G
+- Ahora empezamos a hacer sniffing para obtener las ips de los equipos.
+- En el menú hosts seleccionamos la opción Scan for hosts.
+- Una vez tenemos las IPs, agregamos los equipos como objetivo con Add Target 1 y Add Target 2.
+- Ahora nos vamos al menú MITM y seleccionamos la opción ARP Poisoning.
+- Se nos abrirá una nueva ventana, elegimos la primera opción y le damos a OK.
+- Con esto ya tendríamos hecho el envenenamiento de la caché ARP de ambos equipos.
+
+5. Aplicaciones Web
+-------------------
+Credenciales www.moviescope.com: steve/test
+
+Parameter Tampering
+-------------------
+- Pregunta. ¿Cuál es el ID y el correo del usuario SAM?
+- Para obtener lo que me piden entro con las credenciales que me han dado y en entro en la página View Profile.
+- Al entrar vemos que se está enviando el ID del usuario por método GET con el parámetro id, modifico el id hasta que me salga el usuario sam.
+- Solución: ID=1; Email=sam@moviescope.com
+
+SQL Injection
+-------------
+
+SQLMAP
+------
 
