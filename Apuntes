@@ -75,5 +75,13 @@ OwnCloud
   
   Esteganografía
   --------------
-  En este usaremos la herramienta steghide
+  En este ejercicio usaremos la herramienta steghide.
+  Para la extracción de información de un fichero utilizamos: steghide extract -sf [stego-file] -xf [fichero-extraido]
+  
+  Extraer por fuerza bruta la frase de paso para un archivo esteganográfico.
+  --------------------------------------------------------------------------
+  - Utilizamos stegcracker: apt install stegcracker
+  - Para ejecutar stegcracker lo hacemos de la siguiente manera: stegcracker [stego-file] [dictionary]
+  
+  
   
